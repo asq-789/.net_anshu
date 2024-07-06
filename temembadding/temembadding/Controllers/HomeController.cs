@@ -26,7 +26,24 @@ namespace temembadding.Controllers
         {
             return View();
         }
+        public IActionResult UserProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult UserProduct(UserProduct user)
+        {
+            if (ModelState.IsValid)
+            {
+                return Content("Data is Correct format");
+            }
+            else
+            {
+                ViewBag.msg = "Data is invalid format";
+                return View();
+            }
+        }
 
-        
+
     }
 }

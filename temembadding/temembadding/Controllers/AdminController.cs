@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using temembadding.Models;
+
 namespace temembadding.Controllers
 {
     public class AdminController : Controller
@@ -49,6 +51,24 @@ namespace temembadding.Controllers
             HttpContext.Session.Remove("role");
             return RedirectToAction("Login");
         }
-    }
+        public IActionResult AddProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddProduct(Products product)
+        {
+            if (ModelState.IsValid)
+            {
+                return Content("Data is Correct format");
+            }
+            else
+            {
+                ViewBag.msg = "Data is invalid format";
+                return View();
+            }
+
+        }
+}
 
 }
