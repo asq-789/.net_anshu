@@ -30,7 +30,7 @@ namespace temembadding.Controllers
                 , CookieAuthenticationDefaults.AuthenticationScheme);
                 IsAuthenticated = true;
                 isAdmin = true;
-                return RedirectToAction("Index");
+              
             }
             else if (email == "user@gmail.com" && password == "123")
             {
@@ -42,7 +42,7 @@ namespace temembadding.Controllers
                                , CookieAuthenticationDefaults.AuthenticationScheme);
                 IsAuthenticated = true;
                 isAdmin = false;
-                return RedirectToAction("Index", "home");
+             
             }
             if(IsAuthenticated && isAdmin)
             {
@@ -68,7 +68,7 @@ namespace temembadding.Controllers
         {
             var login = HttpContext.SignOutAsync
                 (CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Auth");
+            return RedirectToAction("Index", "Auth");
         }
     }
 
